@@ -7,10 +7,10 @@ module Activities
     # Relationships
     #-----------------------------------------------------------------------------
 
-    belongs_to :actor,  polymorphic: true
-    belongs_to :target, polymorphic: true
-    belongs_to :obj,    polymorphic: true
-    belongs_to :result, polymorphic: true
+    belongs_to :actor, -> { unscoped },  polymorphic: true
+    belongs_to :target, -> { unscoped }, polymorphic: true
+    belongs_to :obj, -> { unscoped },    polymorphic: true
+    belongs_to :result, -> { unscoped }, polymorphic: true
 
     has_many :receivers, class_name: Activities::Receiver
 
