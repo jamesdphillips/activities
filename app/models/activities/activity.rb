@@ -12,7 +12,7 @@ module Activities
     belongs_to :obj, -> { unscoped },    polymorphic: true
     belongs_to :result, -> { unscoped }, polymorphic: true
 
-    has_many :receivers, class_name: Activities::Receiver
+    has_many :receivers, class_name: Activities::Receiver, dependent: :destroy
 
     #-----------------------------------------------------------------------------
     # Instance Methods

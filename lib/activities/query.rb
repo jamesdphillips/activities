@@ -31,6 +31,10 @@ module Activities
       [activities, p_cursor, n_cursor]
     end
 
+    def delete_by_id(activity_id)
+      delete_activity_query(activity_id)
+    end
+
     def cursor(activity)
       time_to_timestamp(activity.created_at)
     end
@@ -91,6 +95,11 @@ module Activities
         .joins("JOIN activity_receivers ON activity_receivers.activity_id = activities.id")
         .where("activity_receivers.receiver_type = ? AND activity_receivers.receiver_id = ?", klass, @receiver.id)
         .order(created_at: :desc)
+    end
+
+    def delete_activity_query(activity_id)
+      Activity
+        .destroy(activity_id)
     end
 
     # Activity.joins("JOIN activity_receivers ON activity_receivers.activity_id = activities.id").where("activity_receivers.receiver_type = ? AND activity_receivers.receiver_id = ?", 'Organization', 2).order(created_at: :desc)
