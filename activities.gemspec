@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Activities::VERSION
   spec.authors       = ["Jason Webster"]
   spec.email         = ["jason@metalabdesign.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.summary       = "Gem for creating and querying an activity feed."
+  spec.description   = "Gem for creating and querying an activity feed. Activities can be scoped to any object."
   spec.homepage      = ""
   spec.license       = "MIT"
 
